@@ -1,8 +1,7 @@
-<h1>create</h1>
-<ul>
-    <li><a href="{% url 'create'%}">create</a></li>
-    <li><a href="{% url 'edit'%}">edit</a></li>
-    <li><a href="{% url 'list' %}">list</a></li>
-    
+{% extends 'edit.html'%}
 
-</ul>
+
+{% block content%}
+<h1>create</h1>
+{% endblock content %}
+
