@@ -1,10 +1,8 @@
-<h1>title={{title}}</h1>
-<h1>summary={{summary}}</h1>
-<h1>year={{year}}</h1>
-{% if success%}
+{% for key in dictionary_key%}
+<h1>title={{key.title}}</h1>
+<h1>summary={{key.summary}}</h1>
+<h1>year={{key.year}}</h1>
+{% if key.success%}
 sucess is true
-{% elif success%}
-sucess is true or
-{% else%}
-sucess is false
 {% endif %}
+{% endfor %}
