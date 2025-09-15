@@ -1,7 +1,7 @@
 {% for key in dictionary_key%}
-<h1>title={{key.title}}</h1>
-<h1>summary={{key.summary}}</h1>
-<h1>year={{key.year}}</h1>
+<h1>title={{key.title| lower}}</h1>
+<h1>summary={{key.summary|upper}}</h1>
+<h1>year={{key.year|default:'no value created'}}</h1>
 {% if key.success%}
 sucess is true
 {% endif %}
