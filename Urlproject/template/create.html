@@ -1,3 +1,5 @@
 {% load static %}
-<img src="{% static 'image/1.jpeg'%}">
+{% for keys in distionary_key %}
+<img src="{% static 'image/' %}{{ keys.img }}">
+{% endfor %}
 
