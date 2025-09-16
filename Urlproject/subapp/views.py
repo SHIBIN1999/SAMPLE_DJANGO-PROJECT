@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from . models import Student
+from . forms import StudentForm
 
 # Create your views here.
 def create(request):
+    frm=StudentForm()
     if request.POST:
         title=request.POST.get('title')
         su=request.POST.get('summary')
@@ -10,7 +12,10 @@ def create(request):
         obj=Student(title=title,summary=su,year=ye)
         obj.save()
 
-    return render(request,'create.html')
+    return render(request,'create.html',{'frm':frm})
+
+
+
 def list(request):
     database_value=Student.objects.all()
     return render(request,'list.html',{'fullvalue':database_value})
