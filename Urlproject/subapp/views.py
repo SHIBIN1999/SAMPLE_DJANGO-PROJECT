@@ -2,10 +2,10 @@ from django.shortcuts import render
 
 # Create your views here.
 def create(request):
-    s={'distionary_key':[{'img':'1.jpeg'},
-                         {'img':'1.jpeg'},
-                         {'img':'1.jpeg'},]}
-    return render(request,'create.html',s)
+    if request.POST:
+        print(request.POST.get('title'))
+        print(request.POST.get('summary'))
+    return render(request,'create.html')
 def list(request):
     return render(request,'list.html')
 def edit(request):
