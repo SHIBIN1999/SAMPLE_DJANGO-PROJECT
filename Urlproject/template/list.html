@@ -1,2 +1,6 @@
-<h1>list</h1>
+{% for database_key in fullvalue%}
+<h1>title={{database_key.title}}</h1>
+<h1>summary={{database_key.summary}}</h1>
+<h1>year={{database_key.year}}</h1>
+{% endfor  %}
 

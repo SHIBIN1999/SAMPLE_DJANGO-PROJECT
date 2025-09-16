@@ -12,6 +12,7 @@ def create(request):
 
     return render(request,'create.html')
 def list(request):
-    return render(request,'list.html')
+    database_value=Student.objects.all()
+    return render(request,'list.html',{'fullvalue':database_value})
 def edit(request):
     return render(request,'edit.html')
