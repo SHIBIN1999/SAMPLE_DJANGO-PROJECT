@@ -1,6 +1,6 @@
 <table border="2px solid red">
     <tr>
-        <th>title</th><th>summary</th><th>year</th>
+        <th>title</th><th>summary</th><th>year</th><th>edit/delete</th>
     </tr>
    
 {% for k in database_value%}
@@ -8,6 +8,7 @@
 <td><h1>{{k.title}}</h1></td>
 <td><h1> {{k.summary}}</h1></td>
 <td><h1>{{k.year}}</h1></td>
+<td><a href="{% url 'edit' k.id %}">edit</a>/<a href="{% url 'delete' k.id %}">delete</a></td>
 </tr>
 {% endfor%}
 
