@@ -1,0 +1,14 @@
+<table border="2px solid red">
+    <tr>
+        <th>title</th><th>summary</th><th>year</th>
+    </tr>
+   
+{% for k in database_value%}
+ <tr>
+<td><h1>{{k.title}}</h1></td>
+<td><h1> {{k.summary}}</h1></td>
+<td><h1>{{k.year}}</h1></td>
+</tr>
+{% endfor%}
+
+</table>
