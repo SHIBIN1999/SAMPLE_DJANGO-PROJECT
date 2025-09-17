@@ -24,15 +24,10 @@ def table(request):
     database_value=Student.objects.all()
     return render(request,'table.html',{'database_value':database_value})
 def edit(request,pk):
-    print(pk)
+    
     get_id=Student.objects.get(pk=pk)
-    print(get_id)
-    if request.POST:
-        get_id.title=request.POST.get('title')
-        get_id.summary=request.POST.get('summary')
-        get_id.year=request.POST.get('year')
-        get_id.save()
-    return render(request,'edit.html',{'e':get_id})
+    frm=StudentForm(instance=get_id)    
+    return render(request,'create.html',{'frm':frm})
 
 def delete(request,pk):
     get_ids=Student.objects.get(pk=pk)
@@ -40,5 +35,3 @@ def delete(request,pk):
     database_value=Student.objects.all()
     return render(request,'table.html',{'database_value':database_value})
 
-    database_value=Student.objects.all()
-    return render(request,'table.html',{'database_value':database_value})
