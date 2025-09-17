@@ -26,8 +26,33 @@ def table(request):
 def edit(request,pk):
     
     get_id=Student.objects.get(pk=pk)
+    if request.POST:
+        title=request.POST.get('title')
+        summary=request.POST.get('summary')
+        year=request.POST.get('year')
+        get_id.title=title
+        get_id.summary=summary
+        get_id.year=year
+        get_id.save()
     frm=StudentForm(instance=get_id)    
     return render(request,'create.html',{'frm':frm})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def delete(request,pk):
     get_ids=Student.objects.get(pk=pk)
