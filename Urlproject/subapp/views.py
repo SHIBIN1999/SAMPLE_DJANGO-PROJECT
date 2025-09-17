@@ -27,14 +27,12 @@ def edit(request,pk):
     
     get_id=Student.objects.get(pk=pk)
     if request.POST:
-        title=request.POST.get('title')
-        summary=request.POST.get('summary')
-        year=request.POST.get('year')
-        get_id.title=title
-        get_id.summary=summary
-        get_id.year=year
-        get_id.save()
-    frm=StudentForm(instance=get_id)    
+
+        frm=StudentForm(request.POST,instance=get_id)
+        if frm.is_valid():
+            get_id.save()
+    else:
+        frm=StudentForm(instance=get_id)    
     return render(request,'create.html',{'frm':frm})
 
 
