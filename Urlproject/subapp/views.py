@@ -35,8 +35,8 @@ def edit(request,pk):
     return render(request,'edit.html',{'e':get_id})
 
 def delete(request,pk):
-    get_id=Student.objects.get(pk=pk)
-    get_id.delete()
+    get_ids=Student.objects.get(pk=pk)
+    get_ids.delete()
     database_value=Student.objects.all()
     return render(request,'table.html',{'database_value':database_value})
 
