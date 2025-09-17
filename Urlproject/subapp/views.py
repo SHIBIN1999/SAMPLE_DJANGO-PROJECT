@@ -4,13 +4,13 @@ from . forms import StudentForm
 
 # Create your views here.
 def create(request):
-    frm=StudentForm()
+    
     if request.POST:
-        title=request.POST.get('title')
-        su=request.POST.get('summary')
-        ye=request.POST.get('year')
-        obj=Student(title=title,summary=su,year=ye)
-        obj.save()
+      frm=StudentForm(request.POST)
+      if frm.is_valid:
+          frm.save()
+    else:
+        frm=StudentForm()
 
     return render(request,'create.html',{'frm':frm})
 
